@@ -1,0 +1,209 @@
+.nav {
+  width: 100%;
+  /* height: 55px; */
+  background-color: #ffd400;
+  /* margin-bottom: 50px; */
+  user-select: none;
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.nav-container .nav-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.nav-container .nav-content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.nav-container .nav-content {
+  max-width: 1200px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-container .nav-content .nav-item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.nav-container .nav-content .nav-item:hover {
+  text-decoration: none;
+}
+.nav-container .nav-content .nav-item:first-child {
+  width: 250px;
+  height: 55px;
+}
+.nav-container .nav-content .admin,
+.nav-container .nav-content .history,
+.nav-container .nav-content .bag,
+.nav-container .nav-content .about {
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ffbc09;
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+}
+.nav-container .nav-content .admin {
+  width: 70px;
+}
+.nav-container .nav-content .history {
+  width: 150px;
+}
+.nav-container .nav-content .bag {
+  width: 100px;
+}
+.nav-container .nav-content span {
+  margin-left: 5px;
+}
+.nav-container .nav-content .search,
+.nav-container .nav-content input {
+  height: 35px;
+  width: 250px;
+  position: relative;
+  border: none;
+}
+.nav-container .nav-content .search-icon {
+  color: #333;
+}
+.nav-container .nav-content .about {
+  width: 70px;
+}
+.search .search-icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  transform: translateX(-50%);
+}
+.nav-container .nav-content .nav-item-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 100rem;
+  background-color: #ffbc09;
+  position: relative;
+}
+.nav-container .nav-content .nav-item-option .option-icon {
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-container .nav-content .nav-item-option .option-details {
+  width: 110px;
+  height: auto;
+  padding: 10px;
+  background-color: #ffbc09;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  transform: translateY(10%);
+  user-select: none;
+}
+.nav-container .nav-content .nav-item-option .option-details .arrow {
+  width: 17.5px;
+  margin: 0;
+  color: #ffbc09;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, -50%);
+}
+.nav-container .nav-content .nav-item-option .option-detail {
+  display: block;
+  width: 80px;
+  color: black;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 2;
+}
+.nav-menu-wrapper {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+}
+.nav-menu {
+  max-width: 1200px;
+}
+.nav-menu .menu-level-1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  padding: 0;
+  list-style: none;
+}
+.nav-menu .menu-level-1 .item-level-1-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 14px;
+  padding: 10px;
+}
+.nav-menu .menu-level-1 .item-level-1 {
+  position: relative;
+}
+.nav-menu .menu-level-1 .item-level-1:hover .nav-menu-2-wrapper {
+  display: block;
+}
+.nav-menu .menu-level-1 .item-level-1-link:hover {
+  text-decoration: none;
+  background-color: #ffd926;
+}
+.nav-menu .menu-level-1 .item-level-1-link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.item-level-1 .nav-menu-2-wrapper {
+  min-width: 200px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px 20px;
+  box-shadow: 1px 1px 2px #d6d6d6;
+  display: none;
+  position: absolute;
+  top: 45px;
+  z-index: 10;
+}
+.item-level-1 .nav-menu-2 {
+  display: flex;
+}
+.item-level-1 .nav-menu-2 .menu-level-2 {
+  list-style: none;
+  padding: 0;
+  margin-right: 10px;
+}
+.item-level-1 .nav-menu-2 .menu-level-2 .item-level-2,
+.item-level-1 .nav-menu-2 .menu-level-2 .item-level-2-link {
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 400;
+  color: black;
+}
+.item-level-1 .phukien {
+  min-width: 400px;
+}
+.item-level-1 .nav-menu-2 .menu-level-2 .item-level-2 strong {
+  border-bottom: 1px solid #ddd;
+}
+.item-level-1 .nav-menu-2 .menu-level-2 .item-level-2-link:hover {
+  font-weight: bold;
+  text-decoration: none;
+}

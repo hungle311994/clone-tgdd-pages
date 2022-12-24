@@ -1,0 +1,31 @@
+.order-history-container {
+  max-width: 1200px;
+  min-height: 390px;
+  text-align: center;
+  margin: 50px auto;
+}
+.order-history-icon {
+  height: 50px;
+  font-size: 50px;
+  color: #fc3b3b;
+  margin-bottom: 15px;
+}
+.order-history-container span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.order-history-container .go-homepage {
+  width: 500px;
+  height: 40px;
+  border: 1px solid #0b6ffd;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+  cursor: pointer;
+}
+.order-history-container .go-homepage:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+.CTTH-wrapper {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.CTTH {
+  width: 100%;
+}
+.CTTH h3 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.CTTH-content ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.CTTH-content ul li {
+  border-radius: 10px;
+  overflow: hidden;
+}

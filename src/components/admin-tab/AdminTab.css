@@ -1,0 +1,49 @@
+.admin-wrapper .admin-tab {
+  width: 100%;
+  height: 50px;
+  background-color: #ebecec;
+}
+.admin-wrapper .admin-tab ul {
+  width: 90%;
+  margin: 0 auto;
+}
+.admin-wrapper .admin-tab .active {
+  background-color: #fff;
+  border-bottom: none;
+  border-radius: 7px 7px 0 0;
+  text-decoration: none;
+  color: #333;
+}
+.admin-tab ul {
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+}
+.admin-tab ul .admin-tab-item {
+  height: 85%;
+  color: rgb(98, 98, 98);
+  background-color: #e0e0e0;
+  border-radius: 7px 7px 0 0;
+  overflow: hidden;
+}
+.admin-tab ul .admin-tab-item:first-child {
+  margin-right: 5px;
+}
+.admin-tab ul li {
+  width: 120px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: none;
+}
+.admin-tab ul li:hover {
+  color: black;
+}
+.admin-tab ul .admin-tab-item:hover {
+  text-decoration: none;
+}

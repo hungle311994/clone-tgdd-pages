@@ -1,0 +1,40 @@
+.option {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.option ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.option ul li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 290px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 10px;
+}
+.option ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.option ul li a:hover {
+  text-decoration: none;
+}
+.option ul li a span {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+  margin-left: 10px;
+}
+.option ul li a img {
+  width: 70px;
+}
