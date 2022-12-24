@@ -1,6 +1,6 @@
 .CTTH-wrapper {
   width: 100%;
-  background-color: #fff;
+  background-color: var(--w);
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;

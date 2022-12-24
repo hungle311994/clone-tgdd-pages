@@ -47,6 +47,10 @@ const MenuItem = () => {
             </Link>
 
             <div className="nav-menu-2-wrapper phukien">
+              <span>
+                <ion-icon name="caret-up-outline"></ion-icon>
+              </span>
+
               <div className="nav-menu-2">
                 <ul className="menu-level-2">
                   <li className="item-level-2">
@@ -140,6 +144,9 @@ const MenuItem = () => {
             </Link>
 
             <div className="nav-menu-2-wrapper">
+              <span>
+                <ion-icon name="caret-up-outline"></ion-icon>
+              </span>
               <div className="nav-menu-2">
                 <ul className="menu-level-2">
                   <li className="item-level-2">

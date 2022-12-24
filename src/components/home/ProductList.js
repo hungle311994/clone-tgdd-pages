@@ -19,7 +19,7 @@ const ProductList = ({ productList }) => {
                 />
               </div>
               <div className="product-item-detail">
-                <h4 className="title">{productItem.name}</h4>
+                <h4>{productItem.name}</h4>
                 <span className="manufacturer">
                   Hãng sản xuất:
                   <span> {productItem.manufacturerName}</span>

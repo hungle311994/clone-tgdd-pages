@@ -1,5 +1,5 @@
 .admin-product {
-  background-color: #fff;
+  background-color: var(--w);
   padding: 30px;
 }
 .product-header {
@@ -19,7 +19,7 @@
   margin-left: auto;
   padding: 0 15px;
   border-radius: 5px;
-  color: #fff;
+  color: var(--w);
 }
 .product-table thead tr,
 .product-table tbody tr {

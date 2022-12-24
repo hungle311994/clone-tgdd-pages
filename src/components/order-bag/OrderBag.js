@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const OrderBag = () => {
   return (
-    <div className="bag-container">
-      <div className="bag-icon">
+    <div className="order-bag-wrap">
+      <div className="order-bag-icon">
         <ion-icon name="close-circle-outline"></ion-icon>
       </div>
 

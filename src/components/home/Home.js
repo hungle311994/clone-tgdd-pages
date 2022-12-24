@@ -13,13 +13,16 @@ import Footer from "../footer/Footer";
 const Home = ({ productList, goTop }) => {
   return (
     <>
-      <img src={require("../../assets/banner/Banner-big-TGDD.png")} alt="" />
+      <img
+        src={require("../../assets/banner/Banner-Big-Desk-min-1920x450.png")}
+        alt=""
+      />
       <div className="homepage-content">
         <BannerSlider />
         <Option />
         <img src={require("../../assets/banner/Banner.png")} alt="" />
         <div className="product-container">
-          <div className="banner-halloween">
+          <div>
             <img
               src={require("../../assets/product/background-product.png")}
               alt=""
@@ -36,9 +39,18 @@ const Home = ({ productList, goTop }) => {
           <Button
             className="scroll-btn"
             outline
+            title="Go on top"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <ion-icon name="arrow-up-outline"></ion-icon>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <ion-icon name="arrow-up-outline"></ion-icon>
+            </span>
           </Button>
         )}
       </div>

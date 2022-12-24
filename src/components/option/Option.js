@@ -22,7 +22,7 @@ const Option = () => {
               src={require("../../assets/banner/slide/icon--96x104-2.png")}
               alt="icon1"
             />
-            <span>Laptop tựu trường</span>
+            <span>Điện thoại độc quyền</span>
           </Link>
         </li>
 
@@ -32,17 +32,21 @@ const Option = () => {
               src={require("../../assets/banner/slide/icon--96x104-3.png")}
               alt="icon1"
             />
-            <span>Halloween sale sốc</span>
+            <span>Laptop xả kho</span>
           </Link>
         </li>
 
         <li>
           <Link>
             <img
-              src={require("../../assets/banner/slide/icon--96x104-4.png")}
+              src={require("../../assets/banner/slide/icon--96x104-4.gif")}
               alt="icon1"
             />
-            <span>Điện thoại độc quyền</span>
+            <span>
+              Máy cũ
+              <br />
+              Giảm đến 50%
+            </span>
           </Link>
         </li>
       </ul>

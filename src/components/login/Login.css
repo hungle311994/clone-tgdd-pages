@@ -7,10 +7,10 @@
 .login-page .form-input {
   width: 400px;
   height: 400px;
-  background-color: #fff;
+  background-color: var(--w);
   padding: 45px 30px;
   border-radius: 10px;
-  border: 1px solid #d5d6d6;
+  border: 1px solid var(--w1);
   display: grid;
 }
 .login-page .form-input input {
@@ -23,7 +23,7 @@
 }
 .login-page .form-input span {
   font-size: 12px;
-  color: dimgrey;
+  color: var(--b1);
 }
 .login-page .form-input button {
   font-size: 16px;
@@ -36,13 +36,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6c757d;
+  background-color: #5d636b;
   border-radius: 5px;
-  color: #fff;
+  color: var(--w);
   font-size: 14px;
   letter-spacing: 2px;
 }
 .login-page .form-input .login-btn:hover {
   text-decoration: none;
-  background-color: #5d636b;
+  background-color: var(--b2);
 }

@@ -1,6 +1,6 @@
 .admin-wrapper {
-  background-color: #fff;
-  border: 1px solid #d5d6d6;
+  background-color: var(--w);
+  border: 1px solid var(--w1);
   margin-top: 50px;
   margin-bottom: 50px;
 }

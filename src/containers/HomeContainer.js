@@ -19,7 +19,7 @@ const HomeContainer = () => {
       fetchProductList();
     }, 1000);
 
-    window.addEventListener("scroll", () => setGoTop(window.scrollY >= 300));
+    window.addEventListener("scroll", () => setGoTop(window.scrollY >= 200));
   }, []);
 
   const HomeWithLoading = withLoading(Home);

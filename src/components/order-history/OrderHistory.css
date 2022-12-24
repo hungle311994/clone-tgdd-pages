@@ -7,7 +7,7 @@
 .order-history-icon {
   height: 50px;
   font-size: 50px;
-  color: #fc3b3b;
+  color: var(--r1);
   margin-bottom: 15px;
 }
 .order-history-container span {
@@ -18,7 +18,7 @@
 .order-history-container .go-homepage {
   width: 500px;
   height: 40px;
-  border: 1px solid #0b6ffd;
+  border: 1px solid var(--bl);
   border-radius: 4px;
   display: flex;
   justify-content: center;

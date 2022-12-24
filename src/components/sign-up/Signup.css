@@ -7,9 +7,9 @@
 .signup-page .form-input-wrapper {
   width: 400px;
   min-height: 500px;
-  background-color: #fff;
+  background-color: var(--w);
   padding: 45px 30px;
-  border: 1px solid #d5d6d6;
+  border: 1px solid var(--w1);
   border-radius: 10px;
   display: grid;
 }
@@ -24,7 +24,7 @@
 }
 .signup-page .form-input-wrapper span {
   font-size: 12px;
-  color: dimgrey;
+  color: var(--b1);
 }
 .signup-page .form-input-wrapper .signup-btn {
   width: 100%;
@@ -32,13 +32,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6c757d;
+  background-color: #5d636b;
   border-radius: 5px;
-  color: #fff;
+  color: var(--w);
   font-size: 14px;
   letter-spacing: 2px;
 }
 .signup-page .form-input-wrapper .signup-btn:hover {
   text-decoration: none;
-  background-color: #5d636b;
+  background-color: var(--b2);
 }

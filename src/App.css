@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500&display=swap");
 
+:root {
+  --y: #ffd400;
+  --y1: #ffdc40;
+  --o: #ffbc09;
+  --r: #b2070c;
+  --r1: #fc3b3b;
+  --bl: #0b6ffd;
+
+  --w: #fff;
+  --w1: #e0e0e0;
+  --w2: #ebecec;
+
+  --b: #333;
+  --b1: #6d6d6d;
+  --b2: #50575d;
+
+  --t: all 0.3s linear;
+}
 *,
 *:before,
 *:after {

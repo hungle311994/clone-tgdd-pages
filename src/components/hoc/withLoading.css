@@ -2,7 +2,7 @@
   width: 60px;
   height: 60px;
   border-radius: 100rem;
-  border: 5px solid orange;
+  border: 5px solid var(--o);
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   animation: spinner 1.5s infinite linear;

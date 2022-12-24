@@ -1,7 +1,7 @@
 import "./Menu.css";
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Container, Input } from "reactstrap";
+import { Input } from "reactstrap";
 import MenuItem from "./MenuItem";
 
 const Menu = () => {
@@ -32,144 +32,145 @@ const Menu = () => {
 
   return (
     <nav className="nav">
-      <Container className="nav-container">
-        <div className="nav-banner">
-          <img
-            src={require("../../assets/banner/1200-44-1200x44-11.png")}
-            alt=""
-          />
-        </div>
+      <div className="nav-banner">
+        <img
+          src={require("../../assets/banner/1200-44-1200x44-10.png")}
+          alt=""
+        />
+      </div>
 
-        <div className="nav-content-wrapper">
-          <div className="nav-content">
-            <NavLink
-              className="nav-item"
-              to="/HomeContainer"
-              onClick={() => setNavItem(true)}
-            >
-              <img
-                src={require("../../assets/banner/TGDD-logo.png")}
-                alt="Thegioididong-logo"
-              />
-            </NavLink>
+      <div className="nav-direct-wrap">
+        <div className="nav-direct">
+          <NavLink
+            className="nav-direct-item"
+            to="/HomeContainer"
+            onClick={() => setNavItem(true)}
+          >
+            <img
+              src={require("../../assets/banner/TGDD-logo.png")}
+              alt="Thegioididong-logo"
+            />
+          </NavLink>
 
-            <NavLink
-              className="nav-item admin"
-              to="/AdminContainer"
-              onClick={handleClickAdmin}
-            >
-              Admin
-            </NavLink>
+          <NavLink
+            className="nav-direct-item admin"
+            to="/AdminContainer"
+            onClick={handleClickAdmin}
+          >
+            Admin
+          </NavLink>
 
-            <div className="nav-item search" onClick={() => setNavItem(true)}>
-              <Input
-                type="text"
-                className="form-control "
-                placeholder="Bạn tìm gì..."
-              />
+          <div
+            className="nav-direct-item search"
+            onClick={() => setNavItem(true)}
+          >
+            <Input
+              type="text"
+              className="form-control "
+              placeholder="Bạn đang tìm gì..."
+            />
 
-              <Link className="search-icon">
-                <ion-icon name="search-outline"></ion-icon>
-              </Link>
-            </div>
+            <Link className="search-icon">
+              <ion-icon name="search-outline"></ion-icon>
+            </Link>
+          </div>
 
-            <NavLink
-              className="nav-item history"
-              to="/OrderHistory"
-              onClick={() => setNavItem(true)}
-            >
-              Lịch sử đơn hàng
-            </NavLink>
+          <NavLink
+            className="nav-direct-item order-history"
+            to="/OrderHistory"
+            onClick={() => setNavItem(true)}
+          >
+            Lịch sử đơn hàng
+          </NavLink>
 
-            <NavLink
-              className="nav-item bag"
-              to="/OrderBag"
-              onClick={() => setNavItem(true)}
-            >
-              <ion-icon name="bag-outline"></ion-icon>
-              <span>Giỏ hàng</span>
-            </NavLink>
+          <NavLink
+            className="nav-direct-item order-bag"
+            to="/OrderBag"
+            onClick={() => setNavItem(true)}
+          >
+            <ion-icon name="bag-outline"></ion-icon>
+            <span>Giỏ hàng</span>
+          </NavLink>
 
-            <NavLink
-              className="nav-item about"
-              to="/About"
-              onClick={() => setNavItem(true)}
-            >
-              Liên hệ
-            </NavLink>
+          <NavLink
+            className="nav-direct-item about"
+            to="/About"
+            onClick={() => setNavItem(true)}
+          >
+            Liên hệ
+          </NavLink>
 
-            <div
-              className="nav-item-option"
-              onClick={handleOption}
-              onMouseLeave={() => setOption(true)}
-            >
-              {option && (
+          <div
+            className="nav-direct-item option"
+            onClick={handleOption}
+            onMouseLeave={() => setOption(true)}
+          >
+            {option && (
+              <span className="option-icon">
+                <ion-icon name="reorder-three-outline"></ion-icon>
+              </span>
+            )}
+
+            {!option && (
+              <>
                 <span className="option-icon">
-                  <ion-icon name="reorder-three-outline"></ion-icon>
+                  <ion-icon name="close-outline"></ion-icon>
                 </span>
-              )}
 
-              {!option && (
-                <>
-                  <span className="option-icon">
-                    <ion-icon name="close-outline"></ion-icon>
+                <div className="option-details">
+                  <span className="arrow">
+                    <ion-icon name="caret-up-outline"></ion-icon>
                   </span>
 
-                  <div className="option-details">
-                    <span className="arrow">
-                      <ion-icon name="caret-up-outline"></ion-icon>
-                    </span>
+                  {!accountLogin && (
+                    <>
+                      <NavLink
+                        className="option-detail"
+                        to="/Signup"
+                        onClick={() => setNavItem(true)}
+                      >
+                        <ion-icon name="person-outline"></ion-icon>
+                        <span>Sign Up</span>
+                      </NavLink>
 
-                    {!accountLogin && (
-                      <>
-                        <NavLink
-                          className="option-detail"
-                          to="/Signup"
-                          onClick={() => setNavItem(true)}
-                        >
-                          <ion-icon name="person-outline"></ion-icon>
-                          <span>Sign Up</span>
-                        </NavLink>
+                      <NavLink
+                        className="option-detail"
+                        to="/Login"
+                        onClick={() => {
+                          setNavItem(true);
+                        }}
+                      >
+                        <ion-icon name="log-in-outline"></ion-icon>
+                        <span>Login</span>
+                      </NavLink>
+                    </>
+                  )}
 
-                        <NavLink
-                          className="option-detail"
-                          to="/Login"
-                          onClick={() => {
-                            setNavItem(true);
-                          }}
-                        >
-                          <ion-icon name="log-in-outline"></ion-icon>
-                          <span>Login</span>
-                        </NavLink>
-                      </>
-                    )}
+                  {accountLogin && (
+                    <>
+                      <NavLink className="option-detail">
+                        <ion-icon name="people-outline"></ion-icon>
+                        <span>Profile</span>
+                      </NavLink>
 
-                    {accountLogin && (
-                      <>
-                        <NavLink className="option-detail">
-                          <ion-icon name="people-outline"></ion-icon>
-                          <span>Profile</span>
-                        </NavLink>
-
-                        <NavLink
-                          className="option-detail"
-                          to="/Login"
-                          onClick={handleLogout}
-                        >
-                          <ion-icon name="log-out-outline"></ion-icon>
-                          <span>Log out</span>
-                        </NavLink>
-                      </>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
+                      <NavLink
+                        className="option-detail"
+                        to="/Login"
+                        onClick={handleLogout}
+                      >
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span>Log out</span>
+                      </NavLink>
+                    </>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </div>
+      </div>
 
-        {navItem && <MenuItem />}
-      </Container>
+      {navItem && <MenuItem />}
     </nav>
   );
 };

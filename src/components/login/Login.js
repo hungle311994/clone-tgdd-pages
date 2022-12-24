@@ -58,12 +58,6 @@ const Login = () => {
       }
     }
 
-    var kq = listAccountSignup.find(
-      (x) =>
-        x.email === accountLogin.email && x.password === accountLogin.password
-    );
-    console.log(kq);
-
     if (
       accountLogin.email !== "" &&
       accountLogin.email === listAccountSignup[0].email &&

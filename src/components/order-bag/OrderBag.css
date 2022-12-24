@@ -1,24 +1,24 @@
-.bag-container {
+.order-bag-wrap {
   max-width: 1200px;
   min-height: 390px;
   text-align: center;
   margin: 50px auto;
 }
-.bag-icon {
+.order-bag-wrap .order-bag-icon {
   height: 50px;
   font-size: 50px;
-  color: #fc3b3b;
+  color: var(--r1);
   margin-bottom: 15px;
 }
-.bag-container span {
+.order-bag-wrap span {
   display: block;
   font-size: 13px;
   margin-bottom: 15px;
 }
-.bag-container .go-homepage {
+.order-bag-wrap .go-homepage {
   width: 500px;
   height: 40px;
-  border: 1px solid #0b6ffd;
+  border: 1px solid var(--bl);
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -26,6 +26,6 @@
   margin: 0 auto 15px;
   cursor: pointer;
 }
-.bag-container .go-homepage:hover {
+.order-bag-wrap .go-homepage:hover {
   text-decoration: none;
 }
