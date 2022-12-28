@@ -1,20 +1,24 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input, ModalBody } from "reactstrap";
 
-function ModalAddProductForm(props) {
-  let { manufacturerList, categoryList, onHandleAddProduct } = props;
-  // let [idProduct, setIdProduct] = useState("");
-  let [nameProduct, setNameProduct] = useState("");
-  let [priceProduct, setPriceProduct] = useState("");
-  let [infoProduct, setInfoProduct] = useState("");
-  let [detailProduct, setDetailProduct] = useState("");
-  let [starProduct, setStarProduct] = useState("");
-  let [imageProduct, setImageProduct] = useState("");
-  let [manufacturerProduct, setManufacturerProduct] = useState("");
-  let [categoryProduct, setCategoryProduct] = useState("");
+const ModalAddProductForm = (props) => {
+  const state = useSelector((state) => state);
+  const manufacturerList = state.manufacturerRedux.manufacturerList;
 
-  let handleAddProduct = () => {
-    let productNew = {
+  const { categoryList, onHandleAddProduct } = props;
+
+  const [nameProduct, setNameProduct] = useState("");
+  const [priceProduct, setPriceProduct] = useState("");
+  const [infoProduct, setInfoProduct] = useState("");
+  const [detailProduct, setDetailProduct] = useState("");
+  const [starProduct, setStarProduct] = useState("");
+  const [imageProduct, setImageProduct] = useState("");
+  const [manufacturerProduct, setManufacturerProduct] = useState("");
+  const [categoryProduct, setCategoryProduct] = useState("");
+
+  const handleAddProduct = () => {
+    const productNew = {
       name: nameProduct,
       price: priceProduct,
       info: infoProduct,
@@ -26,12 +30,14 @@ function ModalAddProductForm(props) {
     };
     onHandleAddProduct(productNew);
   };
-  let getImageName = (pathImage) => {
-    let array = pathImage.split("\\");
-    let imageName = array[array.length - 1];
+
+  const getImageName = (pathImage) => {
+    const array = pathImage.split("\\");
+    const imageName = array[array.length - 1];
     return imageName;
   };
-  let handleReset = () => {
+
+  const handleReset = () => {
     setNameProduct("");
     setPriceProduct("");
     setInfoProduct("");
@@ -176,6 +182,6 @@ function ModalAddProductForm(props) {
       </Form>
     </ModalBody>
   );
-}
+};
 
 export default ModalAddProductForm;

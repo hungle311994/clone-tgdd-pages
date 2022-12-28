@@ -73,6 +73,33 @@
   right: 0;
   transform: translateX(-50%);
 }
+.nav-direct .order-bag {
+  position: relative;
+}
+.nav-direct .order-bag span:first-child {
+  height: 100%;
+  font-size: 25px;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-direct .order-bag .active {
+  width: 13px;
+  height: 13px;
+  background-color: var(--r1);
+  border-radius: 100rem;
+  position: absolute;
+  top: 6px;
+  left: 22px;
+  color: var(--w);
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-direct .order-bag .inactive {
+  display: none;
+}
 .nav-direct .option {
   width: 35px;
   height: 35px;
@@ -94,25 +121,26 @@
 .nav-direct .option .option-details {
   width: 110px;
   height: auto;
-  padding: 10px;
+  padding: 15px 10px;
   background-color: var(--o);
   border-radius: 5px;
   z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(60%);
+  transform: translateY(55%);
   user-select: none;
 }
-.nav-direct .option .option-details .arrow {
-  width: 20px;
-  height: 20px;
+.nav-direct .option .option-details:before {
+  content: "";
+  width: 10px;
+  height: 10px;
   margin: 0;
-  color: var(--o);
+  background-color: var(--o);
   position: absolute;
   top: 0;
-  left: 0;
-  transform: translate(50%, -50%);
+  left: 12px;
+  transform: translateY(-50%) rotate(45deg);
 }
 .nav-direct .option .option-detail {
   display: flex;
@@ -188,6 +216,16 @@
 }
 .item-level-1 .nav-menu-2 {
   display: flex;
+}
+.item-level-1 .nav-menu-2:before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: var(--w);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(150%, -50%) rotate(45deg);
 }
 .item-level-1 .nav-menu-2 .menu-level-2 {
   list-style: none;

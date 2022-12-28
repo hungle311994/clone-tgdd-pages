@@ -2,18 +2,15 @@
   background-color: var(--w);
   padding: 30px;
 }
-.product-header {
+.admin-product .product-header {
   width: 100%;
   height: 70px;
   display: flex;
 }
-.product-header-title {
-  font-size: 16px;
+.admin-product .product-header h1 {
+  font-size: 30px;
 }
-.product-header-home {
-  height: 40px;
-}
-.product-header-addnew {
+.admin-product .product-header button {
   height: 40px;
   font-size: 16px;
   margin-left: auto;
@@ -21,33 +18,33 @@
   border-radius: 5px;
   color: var(--w);
 }
-.product-table thead tr,
-.product-table tbody tr {
+.admin-product .product-table thead tr,
+.admin-product .product-table tbody tr {
   height: 50px;
 }
-.product-table tbody th,
-.product-table tbody td {
+.admin-product .product-table tbody th,
+.admin-product .product-table tbody td {
   vertical-align: middle !important;
   font-size: 14px;
 }
-.product-table tbody td > button {
+.admin-product .product-table tbody td > button {
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.product-table tbody td > button span {
+.admin-product .product-table tbody td > button span {
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.product-table thead tr th {
+.admin-product .product-table thead tr th {
   vertical-align: middle;
 }
-.product-table thead tr th .input {
+.admin-product .product-table thead tr th .input {
   min-width: 120px;
   font-size: 14px;
   font-weight: 500;

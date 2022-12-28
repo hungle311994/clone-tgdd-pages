@@ -2,7 +2,7 @@ import React from "react";
 import FormAccountItem from "./FormAccountItem";
 
 const FormAccount = (props) => {
-  const { accountList, onHandleShowModalEditAccount } = props;
+  const { onHandleShowModalEditAccount } = props;
 
   return (
     <>
@@ -23,7 +23,6 @@ const FormAccount = (props) => {
       </thead>
 
       <FormAccountItem
-        accountList={accountList}
         onHandleShowModalEditAccount={onHandleShowModalEditAccount}
       />
     </>

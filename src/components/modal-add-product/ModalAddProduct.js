@@ -2,14 +2,14 @@ import React from "react";
 import "./ModalAddProduct.css";
 import { Button, ModalFooter, ModalHeader } from "reactstrap";
 import ModalAddProductForm from "./ModalAddProductForm";
+import { useSelector } from "react-redux";
 
 const ModalAddProduct = (props) => {
-  const {
-    manufacturerList,
-    categoryList,
-    onHandleHideModalAddProduct,
-    onHandleAddProduct,
-  } = props;
+  const state = useSelector((state) => state);
+  const manufacturerList = state.manufacturerRedux.manufacturerList;
+  const categoryList = state.categoryRedux.categoryList;
+
+  const { onHandleHideModalAddProduct, onHandleAddProduct } = props;
 
   const handleHideModalAdd = () => {
     onHandleHideModalAddProduct();

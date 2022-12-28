@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Input } from "reactstrap";
 import FormProductItem from "./FormProductItem";
 
 const FormProduct = (props) => {
-  const {
-    productList,
-    manufacturerList,
-    categoryList,
-    onHandleShowModalEditProduct,
-    onHandleDeleteProduct,
-  } = props;
+  const state = useSelector((state) => state);
+  const manufacturerList = state.manufacturerRedux.manufacturerList;
+  const categoryList = state.categoryRedux.categoryList;
+
+  const { onHandleShowModalEditProduct, onHandleDeleteProduct } = props;
+
   const [manufacturerName, setManufacturerName] = useState("");
   const [categoryName, setCategoryName] = useState("");
 
@@ -64,7 +64,6 @@ const FormProduct = (props) => {
       </thead>
 
       <FormProductItem
-        productList={productList}
         manufacturerName={manufacturerName}
         categoryName={categoryName}
         onHandleShowModalEditProduct={onHandleShowModalEditProduct}

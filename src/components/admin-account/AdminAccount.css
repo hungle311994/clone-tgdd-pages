@@ -2,18 +2,15 @@
   background-color: var(--w);
   padding: 30px;
 }
-.account-header {
+.admin-account .account-header {
   width: 100%;
   height: 70px;
   display: flex;
 }
-.account-header-title {
-  font-size: 16px;
+.admin-account .account-header h1 {
+  font-size: 30px;
 }
-.account-header-home {
-  height: 40px;
-}
-.account-header-addnew {
+.admin-account .account-header button {
   height: 40px;
   font-size: 16px;
   margin-left: auto;
@@ -21,23 +18,23 @@
   border-radius: 5px;
   color: var(--w);
 }
-.account-table thead tr,
-.account-table tbody tr {
+.admin-account .account-table thead tr,
+.admin-account .account-table tbody tr {
   height: 50px;
 }
-.account-table tbody th,
-.account-table tbody td {
+.admin-account .account-table tbody th,
+.admin-account .account-table tbody td {
   vertical-align: middle !important;
   font-size: 14px;
 }
-.account-table tbody td > button {
+.admin-account .account-table tbody td > button {
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.account-table tbody td > button span {
+.admin-account .account-table tbody td > button span {
   width: 30px;
   height: 30px;
   display: flex;

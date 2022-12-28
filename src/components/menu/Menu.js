@@ -1,24 +1,21 @@
 import "./Menu.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Input } from "reactstrap";
 import MenuItem from "./MenuItem";
+import { useSelector } from "react-redux";
 
 const Menu = () => {
   const navigate = useNavigate();
   const [navItem, setNavItem] = useState(true);
   const [option, setOption] = useState(true);
+  const state = useSelector((state) => state);
+  const productOrderList = state.productOrderRedux.productOrderList;
 
   const accountLogin = JSON.parse(localStorage.getItem("accountLogin"));
 
   const handleClickAdmin = () => {
     setNavItem(false);
-  };
-
-  const handleOption = () => {
-    setTimeout(() => {
-      setOption((prev) => !prev);
-    }, 100);
   };
 
   const handleLogout = () => {
@@ -29,6 +26,10 @@ const Menu = () => {
       navigate("/Login");
     }, 300);
   };
+
+  useEffect(() => {
+    window.addEventListener("mousedown", () => setOption(true));
+  }, []);
 
   return (
     <nav className="nav">
@@ -88,8 +89,15 @@ const Menu = () => {
             to="/OrderBag"
             onClick={() => setNavItem(true)}
           >
-            <ion-icon name="bag-outline"></ion-icon>
+            <span>
+              <ion-icon name="cart-outline"></ion-icon>
+            </span>
             <span>Giỏ hàng</span>
+            <span
+              className={productOrderList.length === 0 ? "inactive" : "active"}
+            >
+              {productOrderList.length}
+            </span>
           </NavLink>
 
           <NavLink
@@ -102,8 +110,7 @@ const Menu = () => {
 
           <div
             className="nav-direct-item option"
-            onClick={handleOption}
-            onMouseLeave={() => setOption(true)}
+            onClick={() => setOption(!option)}
           >
             {option && (
               <span className="option-icon">
@@ -118,10 +125,6 @@ const Menu = () => {
                 </span>
 
                 <div className="option-details">
-                  <span className="arrow">
-                    <ion-icon name="caret-up-outline"></ion-icon>
-                  </span>
-
                   {!accountLogin && (
                     <>
                       <NavLink

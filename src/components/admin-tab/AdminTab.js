@@ -11,15 +11,6 @@ const AdminTab = (props) => {
     showAdmin,
     onHandleShowProduct,
     onHandleShowAdmin,
-    productList,
-    accountList,
-    modalAddAccount,
-    modalEditAccount,
-    modalAddProduct,
-    modalEditProduct,
-    manufacturerList,
-    categoryList,
-    productUpdate,
     onHandleShowModalAddAccount,
     onHandleHideModalAddAccount,
     onHandleShowModalEditAccount,
@@ -64,9 +55,6 @@ const AdminTab = (props) => {
 
       {showAdmin && (
         <AdminAccount
-          accountList={accountList}
-          modalAddAccount={modalAddAccount}
-          modalEditAccount={modalEditAccount}
           onHandleShowModalAddAccount={onHandleShowModalAddAccount}
           onHandleHideModalAddAccount={onHandleHideModalAddAccount}
           onHandleShowModalEditAccount={onHandleShowModalEditAccount}
@@ -77,12 +65,6 @@ const AdminTab = (props) => {
 
       {showProduct && (
         <AdminProduct
-          productList={productList}
-          modalAddProduct={modalAddProduct}
-          modalEditProduct={modalEditProduct}
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
-          productUpdate={productUpdate}
           onHandleShowModalAddProduct={onHandleShowModalAddProduct}
           onHandleHideModalAddProduct={onHandleHideModalAddProduct}
           onHandleShowModalEditProduct={onHandleShowModalEditProduct}

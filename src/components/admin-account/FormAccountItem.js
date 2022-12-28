@@ -1,8 +1,12 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { useSelector } from "react-redux";
 
 const FormAccountItem = (props) => {
-  const { accountList, onHandleShowModalEditAccount } = props;
+  const state = useSelector((state) => state);
+  const accountList = state.accountRedux.accountList;
+
+  const { onHandleShowModalEditAccount } = props;
 
   const handleEdit = () => {
     onHandleShowModalEditAccount();

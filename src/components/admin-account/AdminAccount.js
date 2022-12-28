@@ -4,12 +4,14 @@ import { Button, Table } from "reactstrap";
 import ModalAddAccount from "../modal-add-account/ModalAddAccount";
 import ModalEditAccount from "../modal-edit-account/ModalEditAccount";
 import FormAccount from "./FormAccount";
+import { useSelector } from "react-redux";
 
 const AdminAccount = (props) => {
+  const state = useSelector((state) => state);
+  const showModalAddAccount = state.modalAccountRedux.showModalAddAccount;
+  const showModalUpdateAccount = state.modalAccountRedux.showModalUpdateAccount;
+
   const {
-    accountList,
-    modalAddAccount,
-    modalEditAccount,
     onHandleShowModalAddAccount,
     onHandleHideModalAddAccount,
     onHandleShowModalEditAccount,
@@ -24,7 +26,7 @@ const AdminAccount = (props) => {
   return (
     <div className="admin-account">
       <div className="account-header">
-        <h1 className="account-header-tilte">Accounts Management</h1>
+        <h1>Accounts Management</h1>
 
         <Button
           className="account-header-addnew"
@@ -35,14 +37,14 @@ const AdminAccount = (props) => {
         </Button>
       </div>
 
-      {modalAddAccount && (
+      {showModalAddAccount && (
         <ModalAddAccount
           onHandleHideModalAddAccount={onHandleHideModalAddAccount}
           onHandleAddAccount={onHandleAddAccount}
         />
       )}
 
-      {modalEditAccount && (
+      {showModalUpdateAccount && (
         <ModalEditAccount
           onHandleHideModalEditAccount={onHandleHideModalEditAccount}
         />
@@ -50,7 +52,6 @@ const AdminAccount = (props) => {
 
       <Table responsive striped className="account-table">
         <FormAccount
-          accountList={accountList}
           onHandleShowModalEditAccount={onHandleShowModalEditAccount}
         />
       </Table>

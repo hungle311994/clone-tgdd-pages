@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { ModalBody, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 const ModalEditProductForm = (props) => {
-  const {
-    productUpdate,
-    manufacturerList,
-    categoryList,
-    onHandleUpdateProduct,
-  } = props;
+  const state = useSelector((state) => state);
+  const manufacturerList = state.manufacturerRedux.manufacturerList;
+  const categoryList = state.categoryRedux.categoryList;
+  const productUpdate = state.showUpdateProductRedux.productUpdate;
+
+  const { onHandleUpdateProduct } = props;
+
   const [nameUpdate, setNameUpdate] = useState(productUpdate.name);
   const [priceUpdate, setPriceUpdate] = useState(productUpdate.price);
   const [infoUpdate, setInfoUpdate] = useState(productUpdate.info);

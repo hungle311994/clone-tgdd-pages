@@ -1,9 +1,12 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { useSelector } from "react-redux";
 
 const FormProductItem = (props) => {
+  const state = useSelector((state) => state);
+  const productList = state.productRedux.productList;
+
   const {
-    productList,
     manufacturerName,
     categoryName,
     onHandleShowModalEditProduct,

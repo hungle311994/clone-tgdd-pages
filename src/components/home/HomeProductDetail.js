@@ -1,29 +1,42 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "reactstrap";
-import { getProductAPI } from "../../api/ProductAPI";
 import Footer from "../footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { actionFetchProductListAPI } from "../../redux/actions/product-actions/productAction";
+import { actionAddOrder } from "../../redux/actions/product-actions/productOrderAction";
 
 const HomeProductDetail = () => {
-  let [productListAPI, setProductListAPI] = useState([]);
-  let param = useParams();
-  let paramId = Number(param.id);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  const productList = state.productRedux.productList;
+  const param = useParams();
+  const paramId = Number(param.id);
 
-  let fetchProductList = () => {
-    getProductAPI().then((res) => {
-      setProductListAPI(res.data.content);
-    });
+  const handleAddOrder = (productOrder) => {
+    const productOrdered = {
+      id: productOrder.id,
+      name: productOrder.name,
+      price: productOrder.price,
+      detail: productOrder.detail,
+      info: productOrder.info,
+      ratingStar: productOrder.ratingStar,
+      imageName: productOrder.imageName,
+      manufacturerName: productOrder.manufacturerName,
+      categoryName: productOrder.categoryName,
+    };
+    console.log("productOrdered", productOrdered);
+    dispatch(actionAddOrder(productOrdered));
   };
 
   useEffect(() => {
-    fetchProductList();
-  }, []);
+    dispatch(actionFetchProductListAPI());
+  }, [dispatch]);
 
   return (
     <>
-      {productListAPI.map((item) => {
+      {productList.map((item) => {
         if (item.id === paramId) {
           return (
             <div key={item.id}>
@@ -53,7 +66,7 @@ const HomeProductDetail = () => {
                         </div>
                         <p>
                           1 đổi 1 trong <strong>30 ngày</strong> đối với sản
-                          phẩm lỗi tại 3375 siêu thị toàn quốc{" "}
+                          phẩm lỗi tại 3375 siêu thị toàn quốc
                           <Link>Xem chi tiết</Link>
                         </p>
                       </div>
@@ -63,9 +76,9 @@ const HomeProductDetail = () => {
                           <ion-icon name="shield-checkmark-outline"></ion-icon>
                         </div>
                         <p>
-                          Bảo hành{" "}
+                          Bảo hành
                           <strong>chính hãng điện thoại 18 tháng</strong> tại
-                          các trung tâm bảo hành hãng{" "}
+                          các trung tâm bảo hành hãng
                           <Link>Xem địa chỉ bảo hành</Link>
                         </p>
                       </div>
@@ -76,7 +89,7 @@ const HomeProductDetail = () => {
                         </div>
                         <p>
                           Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Ốp
-                          lưng, Cáp Type C, Củ sạc nhanh rời đầu Type A{" "}
+                          lưng, Cáp Type C, Củ sạc nhanh rời đầu Type A
                           <Link>Xem hình</Link>
                         </p>
                       </div>
@@ -95,7 +108,12 @@ const HomeProductDetail = () => {
                           <li>Không áp dụng chung với khuyến mãi khác.</li>
                           <li>Khuyến mãi chưa bao gồm phí giao/chuyển hàng.</li>
                         </ul>
-                        <Button color="danger">THÊM VÀO GIỎ HÀNG</Button>
+                        <Button
+                          color="danger"
+                          onClick={() => handleAddOrder(item)}
+                        >
+                          THÊM VÀO GIỎ HÀNG
+                        </Button>
                         <Button color="primary">
                           <span>TRẢ GÓP QUA THẺ</span>
                           <span>Visa, Mastercard, JCB, Amex</span>

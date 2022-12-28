@@ -1,39 +1,35 @@
 import React, { useEffect, useState } from "react";
 import "./AdminContainer.css";
 import { Container } from "reactstrap";
-import {
-  getProductAPI,
-  addProductAPI,
-  deleteProductAPI,
-  updateProductAPI,
-} from "../api/ProductAPI";
-import { getManufacturerAPI } from "../api/ManufacturerAPI";
-import { getCategoryAPI } from "../api/CategoryAPI";
-import { addAccountAPI, getAccountAPI } from "../api/AccountAPI";
 import AdminTab from "../components/admin-tab/AdminTab";
 import withAuth from "../components/hoc/withAuth";
+import { useDispatch } from "react-redux";
+import {
+  actionHideModalAddProduct,
+  actionHideModalUpdateProduct,
+  actionShowModalAddProduct,
+  actionShowModalUpdateProduct,
+} from "../redux/actions/product-actions/modalProductAction";
+import {
+  actionHideModalAddAccount,
+  actionHideModalUpdateAccount,
+  actionShowModalAddAccount,
+  actionShowModalUpdateAccount,
+} from "../redux/actions/account-actions/modalAccountAction";
+import { actionFetchProductListAPI } from "../redux/actions/product-actions/productAction";
+import { actionFetchManufacturerListAPI } from "../redux/actions/product-actions/manufacturerAction";
+import { actionFetchCategoryListAPI } from "../redux/actions/product-actions/categoryAction";
+import { actionAddProductAPI } from "../redux/actions/product-actions/addAction";
+import { actionFetchAccountListAPI } from "../redux/actions/account-actions/accountAction";
+import { actionDeleteProductAPI } from "../redux/actions/product-actions/deleteAction";
+import { actionShowUpdateProduct } from "../redux/actions/product-actions/showProductUpdateAction";
+import { actionUpdateProductAPI } from "../redux/actions/product-actions/updateAction";
 
 const AdminContainer = () => {
+  const dispatch = useDispatch();
+
   const [showAdmin, setShowAdmin] = useState(false);
   const [showProduct, setShowProduct] = useState(true);
-  const [productList, setProductList] = useState([]);
-  const [accountList, setAccountList] = useState([]);
-  const [manufacturerList, setManufacturerList] = useState([]);
-  const [categoryList, setCategoryList] = useState([]);
-  let [modalAddProduct, setModalAddProduct] = useState(false);
-  let [modalEditProduct, setModalEditProduct] = useState(false);
-  let [modalAddAccount, setModalAddAccount] = useState(false);
-  let [modalEditAccount, setModalEditAccount] = useState(false);
-  let [productUpdate, setProductUpdate] = useState({
-    name: "",
-    price: "",
-    info: "",
-    detail: "",
-    ratingStar: "",
-    imageName: "",
-    manufacturerId: "",
-    categoryId: "",
-  });
 
   // Show Admins Tab & Products Tab
   const onHandleShowProduct = () => {
@@ -47,31 +43,31 @@ const AdminContainer = () => {
 
   // Show & Hide Modal Accounts
   const onHandleShowModalAddAccount = () => {
-    setModalAddAccount((modalAddAccount = true));
+    dispatch(actionShowModalAddAccount());
   };
   const onHandleHideModalAddAccount = () => {
-    setModalAddAccount((modalAddAccount = false));
+    dispatch(actionHideModalAddAccount());
   };
   const onHandleShowModalEditAccount = () => {
-    setModalEditAccount((modalEditAccount = true));
+    dispatch(actionShowModalUpdateAccount());
   };
   const onHandleHideModalEditAccount = () => {
-    setModalEditAccount((modalEditAccount = false));
+    dispatch(actionHideModalUpdateAccount());
   };
 
   // Show & Hide Modal Products
   const onHandleShowModalAddProduct = () => {
-    setModalAddProduct((modalAddProduct = true));
+    dispatch(actionShowModalAddProduct());
   };
   const onHandleHideModalAddProduct = () => {
-    setModalAddProduct((modalAddProduct = false));
+    dispatch(actionHideModalAddProduct());
   };
   const onHandleShowModalEditProduct = (productItem) => {
-    setProductUpdate((productUpdate = productItem));
-    setModalEditProduct((modalEditProduct = true));
+    dispatch(actionShowUpdateProduct(productItem));
+    dispatch(actionShowModalUpdateProduct());
   };
   const onHandleHideModalEditProduct = () => {
-    setModalEditProduct((modalEditProduct = false));
+    dispatch(actionHideModalUpdateProduct());
   };
 
   // Add, Del, Update Account
@@ -85,10 +81,10 @@ const AdminContainer = () => {
       address: accountNew.address,
     };
     console.log("accountNewAPI", accountNewAPI);
-    addAccountAPI(accountNewAPI).then((res) => {
-      fetchAccountList();
-    });
-    onHandleHideModalAddAccount();
+    // addAccountAPI(accountNewAPI).then((res) => {
+    //   fetchAccountList();
+    // });
+    dispatch(actionHideModalAddAccount());
   };
 
   // Add, Del, Update Product
@@ -103,16 +99,16 @@ const AdminContainer = () => {
       manufacturerId: productNew.manufacturerId,
       categoryId: productNew.categoryId,
     };
-    addProductAPI(productNewAPI).then((res) => {
-      fetchProductList();
-    });
-    onHandleHideModalAddProduct();
+    console.log("productNewAPI", productNewAPI);
+
+    dispatch(actionAddProductAPI(productNewAPI));
+    dispatch(actionHideModalAddProduct());
   };
+
   const onHandleDeleteProduct = (productDelete) => {
-    deleteProductAPI(productDelete.id).then((res) => {
-      fetchProductList();
-    });
+    dispatch(actionDeleteProductAPI(productDelete));
   };
+
   const onHandleUpdateProduct = (productUpdated) => {
     const productUpdateAPI = {
       id: productUpdated.id,
@@ -125,44 +121,20 @@ const AdminContainer = () => {
       manufacturerId: productUpdated.manufacturerId,
       categoryId: productUpdated.categoryId,
     };
-    updateProductAPI(productUpdateAPI).then((res) => {
-      fetchProductList();
-    });
-  };
-
-  // Call API Accounts
-  const fetchAccountList = () => {
-    getAccountAPI().then((res) => {
-      setAccountList(res.data);
-    });
-  };
-
-  // Call API Products
-  const fetchProductList = () => {
-    getProductAPI().then((res) => {
-      setProductList(res.data.content);
-    });
-  };
-  const fetchManufacturerList = () => {
-    getManufacturerAPI().then((res) => {
-      setManufacturerList(res.data);
-    });
-  };
-  const fetchCategoryList = () => {
-    getCategoryAPI().then((res) => {
-      setCategoryList(res.data);
-    });
+    console.log("productUpdateAPI", productUpdateAPI);
+    dispatch(actionUpdateProductAPI(productUpdateAPI));
+    dispatch(actionHideModalUpdateProduct());
   };
 
   useEffect(() => {
     // Call API Products
-    fetchProductList();
-    fetchManufacturerList();
-    fetchCategoryList();
+    dispatch(actionFetchProductListAPI());
+    dispatch(actionFetchManufacturerListAPI());
+    dispatch(actionFetchCategoryListAPI());
 
     // Call API Accounts
-    fetchAccountList();
-  }, []);
+    dispatch(actionFetchAccountListAPI());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -172,15 +144,6 @@ const AdminContainer = () => {
           showAdmin={showAdmin}
           onHandleShowProduct={onHandleShowProduct}
           onHandleShowAdmin={onHandleShowAdmin}
-          productList={productList}
-          accountList={accountList}
-          modalAddAccount={modalAddAccount}
-          modalEditAccount={modalEditAccount}
-          modalAddProduct={modalAddProduct}
-          modalEditProduct={modalEditProduct}
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
-          productUpdate={productUpdate}
           onHandleShowModalAddAccount={onHandleShowModalAddAccount}
           onHandleHideModalAddAccount={onHandleHideModalAddAccount}
           onHandleShowModalEditAccount={onHandleShowModalEditAccount}

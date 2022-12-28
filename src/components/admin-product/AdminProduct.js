@@ -4,15 +4,14 @@ import { Button, Table } from "reactstrap";
 import FormProduct from "./FormProduct";
 import ModalAddProduct from "../modal-add-product/ModalAddProduct";
 import ModalEditProduct from "../modal-edit-product/ModalEditProduct";
+import { useSelector } from "react-redux";
 
 const AdminProduct = (props) => {
+  const state = useSelector((state) => state);
+  const showModalAddProduct = state.modalProductRedux.showModalAddProduct;
+  const showModalUpdateProduct = state.modalProductRedux.showModalUpdateProduct;
+
   const {
-    productList,
-    productUpdate,
-    manufacturerList,
-    categoryList,
-    modalAddProduct,
-    modalEditProduct,
     onHandleShowModalAddProduct,
     onHandleShowModalEditProduct,
     onHandleHideModalAddProduct,
@@ -29,31 +28,22 @@ const AdminProduct = (props) => {
   return (
     <div className="admin-product">
       <div className="product-header">
-        <h1 className="product-header-tilte">Products Management</h1>
+        <h1>Products Management</h1>
 
-        <Button
-          className="product-header-addnew"
-          color="primary"
-          onClick={handleModalAdd}
-        >
+        <Button color="primary" onClick={handleModalAdd}>
           Add New Product
         </Button>
       </div>
 
-      {modalAddProduct && (
+      {showModalAddProduct && (
         <ModalAddProduct
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
           onHandleHideModalAddProduct={onHandleHideModalAddProduct}
           onHandleAddProduct={onHandleAddProduct}
         />
       )}
 
-      {modalEditProduct && (
+      {showModalUpdateProduct && (
         <ModalEditProduct
-          productUpdate={productUpdate}
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
           onHandleHideModalEditProduct={onHandleHideModalEditProduct}
           onHandleUpdateProduct={onHandleUpdateProduct}
         />
@@ -61,9 +51,6 @@ const AdminProduct = (props) => {
 
       <Table responsive striped className="product-table">
         <FormProduct
-          productList={productList}
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
           onHandleShowModalEditProduct={onHandleShowModalEditProduct}
           onHandleDeleteProduct={onHandleDeleteProduct}
         />

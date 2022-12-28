@@ -3,13 +3,7 @@ import { ModalHeader, ModalFooter, Button } from "reactstrap";
 import ModalEditProductForm from "./ModalEditProductForm";
 
 const ModalEditProduct = (props) => {
-  const {
-    productUpdate,
-    manufacturerList,
-    categoryList,
-    onHandleHideModalEditProduct,
-    onHandleUpdateProduct,
-  } = props;
+  const { onHandleHideModalEditProduct, onHandleUpdateProduct } = props;
 
   const handleHideModalEdit = () => {
     onHandleHideModalEditProduct();
@@ -20,12 +14,7 @@ const ModalEditProduct = (props) => {
       <div className="modal-content">
         <ModalHeader className="modal-title">Update Product</ModalHeader>
 
-        <ModalEditProductForm
-          productUpdate={productUpdate}
-          manufacturerList={manufacturerList}
-          categoryList={categoryList}
-          onHandleUpdateProduct={onHandleUpdateProduct}
-        />
+        <ModalEditProductForm onHandleUpdateProduct={onHandleUpdateProduct} />
 
         <ModalFooter>
           <Button
