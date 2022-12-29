@@ -1,11 +1,13 @@
 import "./OrderBag.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getDate } from "../../helper/getDate";
 import { getNumberOfPrice, VND } from "../../helper/calcPrices";
+import { actionDeleleOrder } from "../../redux/actions/product-actions/productOrderAction";
 
 const OrderBag = () => {
+  const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const productOrderList = state.productOrderRedux.productOrderList;
   const [isActive, setIsActive] = useState("");
@@ -42,11 +44,9 @@ const OrderBag = () => {
     const VAT = VND.format((currentPrice * 10) / 100);
     const totalPrice = VND.format(currentPrice + (currentPrice * 10) / 100);
 
-    const id = productOrderList.map((item) => item.id);
-    console.log("id", id);
-    let sameId = [];
-    sameId = id.filter((id) => id === 4);
-    console.log("sameId", sameId.length);
+    const handleDeleteItem = (item, idx) => {
+      dispatch(actionDeleleOrder(item, idx));
+    };
 
     return (
       <div className="order-bag-wrap">
@@ -181,6 +181,10 @@ const OrderBag = () => {
                       <span className="price">{item.price}</span>
                       <span className="qty">Qty: 1</span>
                     </div>
+
+                    <span onClick={() => handleDeleteItem(item, idx)}>
+                      <ion-icon name="close-circle-outline"></ion-icon>
+                    </span>
                   </div>
                 ))}
               </div>

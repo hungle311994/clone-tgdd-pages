@@ -167,7 +167,7 @@ const MenuItem = () => {
 
           <li className="item-level-1">
             <Link className="item-level-1-link">
-              <span> Covenient service</span>
+              <span> Convenient service</span>
             </Link>
           </li>
         </ul>

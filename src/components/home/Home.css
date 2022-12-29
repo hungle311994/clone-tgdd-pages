@@ -1,8 +1,9 @@
 .product-container {
   width: 100%;
   margin: 20px 0;
-  background-color: #003220;
+  background-color: #ffe89e;
   border-radius: 15px;
+  overflow: hidden;
 }
 .product-list-wrapper {
   width: 100%;

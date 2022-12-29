@@ -2,6 +2,29 @@
   width: 100%;
   background-color: var(--y);
   user-select: none;
+  position: relative;
+}
+.nav:before {
+  content: "";
+  position: absolute;
+  background-image: url("../../assets/banner/mua-lan.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70px;
+  height: 154px;
+  top: 0;
+  left: 0;
+}
+.nav:after {
+  content: "";
+  position: absolute;
+  background-image: url("../../assets/banner/bg-banh-chung.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70px;
+  height: 154px;
+  top: 0;
+  right: 0;
 }
 .nav-banner {
   width: 100%;
@@ -41,8 +64,8 @@
   text-decoration: none;
 }
 .nav-direct-item img {
-  width: 250px;
-  height: 55px;
+  width: 255px;
+  height: 50px;
 }
 .nav-direct .admin,
 .nav-direct .order-history,

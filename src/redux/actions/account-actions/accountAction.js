@@ -3,7 +3,7 @@ import { FETCH_ACCOUNT_API } from "../../constants/types";
 
 export const actionFetchAccountListAPI = () => {
   return async (dispatch) => {
-    return getAccountAPI().then((res) => {
+    return await getAccountAPI().then((res) => {
       dispatch(actionFetchAccountList(res.data));
     });
   };

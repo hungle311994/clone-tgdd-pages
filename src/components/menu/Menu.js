@@ -1,5 +1,5 @@
 import "./Menu.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Input } from "reactstrap";
 import MenuItem from "./MenuItem";
@@ -7,29 +7,20 @@ import { useSelector } from "react-redux";
 
 const Menu = () => {
   const navigate = useNavigate();
-  const [navItem, setNavItem] = useState(true);
   const [option, setOption] = useState(true);
   const state = useSelector((state) => state);
   const productOrderList = state.productOrderRedux.productOrderList;
 
   const accountLogin = JSON.parse(localStorage.getItem("accountLogin"));
 
-  const handleClickAdmin = () => {
-    setNavItem(false);
-  };
-
   const handleLogout = () => {
-    setNavItem(true);
+    console.log("click");
     localStorage.removeItem("accountLogin");
     alert("Đăng xuất thành công!!!");
     setTimeout(() => {
       navigate("/Login");
     }, 300);
   };
-
-  useEffect(() => {
-    window.addEventListener("mousedown", () => setOption(true));
-  }, []);
 
   return (
     <nav className="nav">
@@ -42,29 +33,18 @@ const Menu = () => {
 
       <div className="nav-direct-wrap">
         <div className="nav-direct">
-          <NavLink
-            className="nav-direct-item"
-            to="/HomeContainer"
-            onClick={() => setNavItem(true)}
-          >
+          <NavLink className="nav-direct-item" to="/HomeContainer">
             <img
               src={require("../../assets/banner/TGDD-logo.png")}
               alt="Thegioididong-logo"
             />
           </NavLink>
 
-          <NavLink
-            className="nav-direct-item admin"
-            to="/AdminContainer"
-            onClick={handleClickAdmin}
-          >
+          <NavLink className="nav-direct-item admin" to="/AdminContainer">
             Admin
           </NavLink>
 
-          <div
-            className="nav-direct-item search"
-            onClick={() => setNavItem(true)}
-          >
+          <div className="nav-direct-item search">
             <Input
               type="text"
               className="form-control "
@@ -76,19 +56,11 @@ const Menu = () => {
             </Link>
           </div>
 
-          <NavLink
-            className="nav-direct-item order-history"
-            to="/OrderHistory"
-            onClick={() => setNavItem(true)}
-          >
+          <NavLink className="nav-direct-item order-history" to="/OrderHistory">
             Order History
           </NavLink>
 
-          <NavLink
-            className="nav-direct-item order-bag"
-            to="/OrderBag"
-            onClick={() => setNavItem(true)}
-          >
+          <NavLink className="nav-direct-item order-bag" to="/OrderBag">
             <span>
               <ion-icon name="cart-outline"></ion-icon>
             </span>
@@ -98,11 +70,7 @@ const Menu = () => {
             </span>
           </NavLink>
 
-          <NavLink
-            className="nav-direct-item about"
-            to="/About"
-            onClick={() => setNavItem(true)}
-          >
+          <NavLink className="nav-direct-item about" to="/About">
             About
           </NavLink>
 
@@ -125,22 +93,12 @@ const Menu = () => {
                 <div className="option-details">
                   {!accountLogin && (
                     <>
-                      <NavLink
-                        className="option-detail"
-                        to="/Signup"
-                        onClick={() => setNavItem(true)}
-                      >
+                      <NavLink className="option-detail" to="/Signup">
                         <ion-icon name="person-outline"></ion-icon>
                         <span>Sign Up</span>
                       </NavLink>
 
-                      <NavLink
-                        className="option-detail"
-                        to="/Login"
-                        onClick={() => {
-                          setNavItem(true);
-                        }}
-                      >
+                      <NavLink className="option-detail" to="/Login">
                         <ion-icon name="log-in-outline"></ion-icon>
                         <span>Login</span>
                       </NavLink>
@@ -171,7 +129,7 @@ const Menu = () => {
         </div>
       </div>
 
-      {navItem && <MenuItem />}
+      <MenuItem />
     </nav>
   );
 };
