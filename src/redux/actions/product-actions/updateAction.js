@@ -3,7 +3,7 @@ import { actionFetchProductListAPI } from "./productAction";
 import { updateProductAPI } from "../../../api/ProductAPI";
 
 export const actionUpdateProductAPI = (productUpdateAPI) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     return updateProductAPI(productUpdateAPI).then((res) => {
       dispatch(actionUpdateProduct(res));
       dispatch(actionFetchProductListAPI());

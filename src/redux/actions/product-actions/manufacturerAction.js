@@ -2,7 +2,7 @@ import { FETCH_MANUFACTURER_API } from "../../constants/types";
 import { getManufacturerAPI } from "../../../api/ManufacturerAPI";
 
 export const actionFetchManufacturerListAPI = () => {
-  return async (dispatch) => {
+  return (dispatch) => {
     return getManufacturerAPI().then((res) => {
       dispatch(actionFetchManufacturerList(res.data));
     });
