@@ -68,7 +68,7 @@ const Menu = () => {
             <Input
               type="text"
               className="form-control "
-              placeholder="Bạn đang tìm gì..."
+              placeholder="Search..."
             />
 
             <Link className="search-icon">
@@ -81,7 +81,7 @@ const Menu = () => {
             to="/OrderHistory"
             onClick={() => setNavItem(true)}
           >
-            Lịch sử đơn hàng
+            Order History
           </NavLink>
 
           <NavLink
@@ -92,10 +92,8 @@ const Menu = () => {
             <span>
               <ion-icon name="cart-outline"></ion-icon>
             </span>
-            <span>Giỏ hàng</span>
-            <span
-              className={productOrderList.length === 0 ? "inactive" : "active"}
-            >
+            <span>Your Order</span>
+            <span className={!productOrderList.length ? "inactive" : "active"}>
               {productOrderList.length}
             </span>
           </NavLink>
@@ -105,7 +103,7 @@ const Menu = () => {
             to="/About"
             onClick={() => setNavItem(true)}
           >
-            Liên hệ
+            About
           </NavLink>
 
           <div

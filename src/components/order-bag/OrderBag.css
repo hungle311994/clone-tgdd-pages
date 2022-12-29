@@ -32,11 +32,11 @@
 
 /* ----------------- */
 .order-bag-wrap .order-bag {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 1000px;
   padding: 40px;
   border: 1px solid var(--w1);
   border-radius: 24px;
+  margin: 0 auto;
 }
 .order-bag-wrap .order-bag .order-header {
   text-align: left;
@@ -44,24 +44,39 @@
   margin-bottom: 20px;
 }
 .order-bag-wrap .order-bag .order-header h2 {
-  font-size: 25px;
+  font-size: 30px;
   color: var(--b);
 }
 .order-bag-wrap .order-bag .order-header span {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--b1);
 }
 .order-bag-wrap .order-bag .order-content {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  padding: 20px 30px;
+}
+.order-bag-wrap .order-bag .order-content .your-order {
+  width: 100%;
+}
+.order-bag-wrap .order-bag .order-content .your-order h4 {
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.order-bag-wrap .order-bag .order-content .order-items {
+  width: 100%;
+  max-height: 396px;
+  overflow-y: scroll;
   margin-bottom: 20px;
 }
 .order-bag-wrap .order-bag .order-content .order-item {
   width: 100%;
   height: 70px;
   display: flex;
+  margin-bottom: 10px;
 }
 .order-bag-wrap .order-bag .order-content .order-item .order-infor {
   display: flex;
@@ -81,7 +96,7 @@
   object-fit: cover;
 }
 .order-bag-wrap .order-bag .details .name {
-  font-size: 14px;
+  font-size: 13px;
   text-align: left;
 }
 .order-bag-wrap .order-bag .details span {
@@ -93,51 +108,266 @@
 }
 .order-bag-wrap .order-bag .details .element > span,
 .order-bag-wrap .order-bag .order-content .order-item .order-prices .qty {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--b1);
 }
 .order-bag-wrap .order-bag .order-content .order-item .order-prices {
   margin-left: auto;
+  margin-right: 10px;
   min-width: 100px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   justify-content: center;
   align-items: flex-end;
+}
+.order-bag-wrap .order-bag .order-content .order-item .order-prices .price {
+  font-size: 12px;
 }
 .order-bag-wrap .order-bag .order-content .order-item .order-prices span {
   margin: 0;
 }
-.order-bag-wrap .order-bag .order-footer {
+
+.order-bag-wrap .order-bag .order-content .payment {
   width: 100%;
-  border-top: 1px solid var(--w1);
-  padding-top: 20px;
+  /* height: 660px; */
 }
-.order-bag-wrap .order-bag .order-footer .total {
+.order-bag-wrap .order-bag .order-content .payment h4 {
+  font-size: 20px;
+  text-align: left;
+}
+.order-bag-wrap .order-bag .order-content .payment > span {
+  font-size: 11px;
+  color: var(--b1);
+  text-align: left;
+}
+.order-bag-wrap .order-bag .order-content .payment form {
+  width: 100%;
+  height: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.order-bag-wrap .order-bag .order-content .payment form .form-input {
+  width: 100%;
+  text-align: left;
+}
+.order-bag-wrap .order-bag .order-content .payment form label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.order-bag-wrap .order-bag .form-input > input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--w1);
+  border-radius: 5px;
+  padding: 10px;
+}
+.order-bag-wrap .order-bag .form-input input,
+.order-bag-wrap .order-bag .form-input input:placeholder-shown {
+  font-size: 11px;
+}
+.order-bag-wrap .order-bag .form-input input:focus,
+.order-bag-wrap .order-bag .form-input .card-detail input:focus,
+.order-bag-wrap .order-bag .form-input > .address > input:focus {
+  border: 1px solid var(--bl);
+  transition: var(--t);
+}
+.order-bag-wrap .order-bag .form-input .card-detail input,
+.order-bag-wrap .order-bag .form-input .address input {
+  height: 40px;
+  border: none;
+  border: 1px solid var(--w1);
+  border-radius: 5px;
+  padding: 10px;
+}
+.order-bag-wrap .order-bag .form-input .card-detail input:first-child {
+  width: 280px;
+  margin-right: 5px;
+}
+.order-bag-wrap .order-bag .form-input .card-detail input:nth-child(2),
+.order-bag-wrap .order-bag .form-input .card-detail input:nth-child(3) {
+  width: 64px;
+}
+.order-bag-wrap .order-bag .form-input .card-detail input:nth-child(2),
+.order-bag-wrap .order-bag .form-input .address input:first-child {
+  margin-right: 5px;
+}
+.order-bag-wrap .order-bag form > .address > input {
+  margin-bottom: 5px;
+}
+.order-bag-wrap .order-bag form .payment-method {
+  width: 100%;
+  height: 90px;
+}
+.order-bag-wrap .order-bag form .payment-method .payment {
+  width: 100%;
+  height: 67px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 0.75fr;
+  gap: 5px;
+}
+.order-bag-wrap .order-bag form .payment-method .payment .payment-select {
+  width: 100%;
+  height: 67px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  border: 1px solid var(--w1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.order-bag-wrap .order-bag form .payment-method .payment .active {
+  border: 1px solid var(--bl);
+  transition: var(--t);
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select:nth-child(3)
+  a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select:nth-child(3)
+  span {
+  margin: 0;
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select:nth-child(3)
+  span:first-child {
+  font-size: 18px;
+}
+.order-bag-wrap .order-bag form .payment-method .payment .payment-select span {
+  margin: 0;
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select
+  .card-number {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select
+  .card-number
+  span:last-child,
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select
+  .card-number
+  span:last-child
+  .link {
+  color: var(--b1);
+  font-size: 12px;
+}
+
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select
+  > span {
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-bag-wrap
+  .order-bag
+  form
+  .payment-method
+  .payment
+  .payment-select
+  > span
+  i {
+  font-size: 25px;
+  color: var(--bl);
+}
+.order-bag-wrap .order-bag .billing {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  gap: 10px;
+}
+.order-bag-wrap .order-bag .billing input {
+  width: 16px;
+  height: 16px;
+}
+.order-bag-wrap .order-bag .billing span {
+  color: var(--b1);
+  font-size: 12px;
+}
+
+/* ------------ */
+.order-bag-wrap .order-bag .total-price {
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid var(--w1);
+  border-bottom: 1px solid var(--w1);
+  margin-bottom: 20px;
+}
+.order-bag-wrap .order-bag .total-price .price-item {
+  width: 100%;
   display: flex;
 }
-.order-bag-wrap .order-bag .order-footer .total span:first-child {
-  font-size: 15px;
-  font-weight: 500;
+.order-bag-wrap .order-bag .total-price .price-item span {
+  font-size: 12px;
 }
-.order-bag-wrap .order-bag .order-footer .total span:last-child {
+.order-bag-wrap .order-bag .total-price .price-item span:last-child {
   margin-left: auto;
-  font-size: 14px;
-  font-weight: 500;
 }
-.order-bag-wrap .order-bag .order-footer button {
-  width: 200px;
+.order-bag-wrap .order-bag .total-price .total span {
+  font-size: 13px;
+  font-weight: bold;
+}
+.order-bag-wrap .order-bag .order-content button {
   height: 45px;
+  padding: 0 25px;
   outline: none;
   border: none;
   border-radius: 100rem;
   color: var(--w);
   letter-spacing: 1px;
-  background: linear-gradient(45deg, var(--y), var(--o));
+  background-color: var(--bl);
   position: relative;
 }
-.order-bag-wrap .order-bag .order-footer button:before {
+.order-bag-wrap .order-bag .order-content button:before {
   content: "";
   position: absolute;
   width: 0;
@@ -147,6 +377,6 @@
   background-color: rgba(255, 255, 255, 0.2);
   transition: var(--t);
 }
-.order-bag-wrap .order-bag .order-footer button:hover:before {
+.order-bag-wrap .order-bag .order-content button:hover:before {
   width: 100%;
 }
