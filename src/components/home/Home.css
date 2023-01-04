@@ -78,6 +78,9 @@
   align-items: center;
   margin: 20px 0;
 }
+.product-detail-header h2 {
+  font-size: 25px;
+}
 .product-detail-header .rating-star {
   display: inline-block;
   margin: 0 5px 0 10px;

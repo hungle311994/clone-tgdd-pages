@@ -2,8 +2,8 @@ import { getProductAPI } from "../../../api/ProductAPI";
 import { FETCH_PRODUCT_API } from "../../constants/types";
 
 export const actionFetchProductListAPI = () => {
-  return async (dispatch) => {
-    return await getProductAPI().then((res) => {
+  return (dispatch) => {
+    return getProductAPI().then((res) => {
       dispatch(actionFetchProductList(res.data.content));
     });
   };

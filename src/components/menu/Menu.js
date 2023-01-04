@@ -9,7 +9,7 @@ const Menu = () => {
   const navigate = useNavigate();
   const [option, setOption] = useState(true);
   const state = useSelector((state) => state);
-  const productOrderList = state.productOrderRedux.productOrderList;
+  const numberOrder = state.productOrderRedux.numberOrder;
 
   const accountLogin = JSON.parse(localStorage.getItem("accountLogin"));
 
@@ -65,8 +65,8 @@ const Menu = () => {
               <ion-icon name="cart-outline"></ion-icon>
             </span>
             <span>Your Order</span>
-            <span className={!productOrderList.length ? "inactive" : "active"}>
-              {productOrderList.length}
+            <span className={numberOrder === 0 ? "inactive" : "active"}>
+              {numberOrder}
             </span>
           </NavLink>
 

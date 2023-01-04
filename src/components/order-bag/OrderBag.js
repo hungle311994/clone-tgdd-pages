@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDate } from "../../helper/getDate";
 import { getNumberOfPrice, VND } from "../../helper/calcPrices";
-import { actionDeleleOrder } from "../../redux/actions/product-actions/productOrderAction";
+import {
+  actionDecreaseOrder,
+  actionDeleleOrder,
+  actionIncreaseOrder,
+} from "../../redux/actions/product-actions/productOrderAction";
 
 const OrderBag = () => {
   const dispatch = useDispatch();
@@ -38,7 +42,9 @@ const OrderBag = () => {
   }
 
   if (productOrderList.length) {
-    const price = productOrderList.map((item) => getNumberOfPrice(item.price));
+    const price = productOrderList.map(
+      (item) => getNumberOfPrice(item.price) * item.qty
+    );
     const currentPrice = price.reduce((a, b) => a + b);
     const subTotal = VND.format(currentPrice);
     const VAT = VND.format((currentPrice * 10) / 100);
@@ -46,6 +52,14 @@ const OrderBag = () => {
 
     const handleDeleteItem = (item, idx) => {
       dispatch(actionDeleleOrder(item, idx));
+    };
+
+    const handleDecrease = (item, idx) => {
+      dispatch(actionDecreaseOrder(item, idx));
+    };
+
+    const handleIncrease = (item, idx) => {
+      dispatch(actionIncreaseOrder(item, idx));
     };
 
     return (
@@ -179,11 +193,28 @@ const OrderBag = () => {
 
                     <div className="order-prices">
                       <span className="price">{item.price}</span>
-                      <span className="qty">Qty: 1</span>
+                      <div className="qty">
+                        <span
+                          onClick={() => handleDecrease(item, idx)}
+                          value={item.qty}
+                        >
+                          <ion-icon name="remove-outline"></ion-icon>
+                        </span>
+                        <span>{item.qty}</span>
+                        <span
+                          onClick={() => handleIncrease(item, idx)}
+                          value={item.qty}
+                        >
+                          <ion-icon name="add-outline"></ion-icon>
+                        </span>
+                      </div>
                     </div>
 
-                    <span onClick={() => handleDeleteItem(item, idx)}>
-                      <ion-icon name="close-circle-outline"></ion-icon>
+                    <span
+                      className="delete"
+                      onClick={() => handleDeleteItem(item, idx)}
+                    >
+                      <ion-icon name="trash-outline"></ion-icon>
                     </span>
                   </div>
                 ))}
@@ -206,7 +237,7 @@ const OrderBag = () => {
                 </div>
               </div>
 
-              <button>Pay {totalPrice}</button>
+              <button>Checkout</button>
             </div>
           </div>
         </div>

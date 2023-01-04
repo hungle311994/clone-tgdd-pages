@@ -25,8 +25,8 @@ const HomeProductDetail = () => {
       imageName: productOrder.imageName,
       manufacturerName: productOrder.manufacturerName,
       categoryName: productOrder.categoryName,
+      qty: 1,
     };
-    // console.log("productOrdered", productOrdered);
     dispatch(actionAddOrder(productOrdered));
   };
 
