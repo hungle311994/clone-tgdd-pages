@@ -67,7 +67,7 @@ const HomeProductDetail = () => {
                         <p>
                           1 đổi 1 trong <strong>30 ngày</strong> đối với sản
                           phẩm lỗi tại 3375 siêu thị toàn quốc
-                          <Link>Xem chi tiết</Link>
+                          <Link> Xem chi tiết</Link>
                         </p>
                       </div>
 
@@ -77,9 +77,9 @@ const HomeProductDetail = () => {
                         </div>
                         <p>
                           Bảo hành
-                          <strong>chính hãng điện thoại 18 tháng</strong> tại
+                          <strong> chính hãng điện thoại 18 tháng</strong> tại
                           các trung tâm bảo hành hãng
-                          <Link>Xem địa chỉ bảo hành</Link>
+                          <Link> Xem địa chỉ bảo hành</Link>
                         </p>
                       </div>
 
@@ -90,7 +90,7 @@ const HomeProductDetail = () => {
                         <p>
                           Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Ốp
                           lưng, Cáp Type C, Củ sạc nhanh rời đầu Type A
-                          <Link>Xem hình</Link>
+                          <Link> Xem hình</Link>
                         </p>
                       </div>
                     </div>
