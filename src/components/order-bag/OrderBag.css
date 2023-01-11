@@ -183,7 +183,7 @@
   .qty
   span:first-child[value="1"] {
   background-image: linear-gradient(45deg, #979dac, #adb5bd);
-  cursor: default;
+  cursor: not-allowed;
 }
 .order-bag-wrap .order-bag .order-content .order-item .delete {
   width: 16px;

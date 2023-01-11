@@ -10,7 +10,7 @@ import XHMS from "../xhms/XHMS";
 import ProductList from "./ProductList";
 import Footer from "../footer/Footer";
 
-const Home = ({ productList, goTop }) => {
+const Home = ({ goTop }) => {
   return (
     <>
       <img
@@ -29,7 +29,7 @@ const Home = ({ productList, goTop }) => {
             />
           </div>
 
-          <ProductList productList={productList} />
+          <ProductList />
         </div>
         <XHMS />
         <DMNB />

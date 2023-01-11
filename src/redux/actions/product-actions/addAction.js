@@ -3,11 +3,10 @@ import { addProductAPI } from "../../../api/ProductAPI";
 import { actionFetchProductListAPI } from "./productAction";
 
 export const actionAddProductAPI = (productNewAPI) => {
-  return (dispatch) => {
-    return addProductAPI(productNewAPI).then((res) => {
-      dispatch(actionAddProduct(res));
-      dispatch(actionFetchProductListAPI());
-    });
+  return async (dispatch) => {
+    const res = await addProductAPI(productNewAPI);
+    dispatch(actionAddProduct(res));
+    dispatch(actionFetchProductListAPI());
   };
 };
 

@@ -33,7 +33,7 @@ const Menu = () => {
 
       <div className="nav-direct-wrap">
         <div className="nav-direct">
-          <NavLink className="nav-direct-item" to="/HomeContainer">
+          <NavLink className="nav-direct-item" to="/">
             <img
               src={require("../../assets/banner/TGDD-logo.png")}
               alt="Thegioididong-logo"

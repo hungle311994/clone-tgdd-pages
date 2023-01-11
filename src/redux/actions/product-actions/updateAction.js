@@ -3,11 +3,10 @@ import { actionFetchProductListAPI } from "./productAction";
 import { updateProductAPI } from "../../../api/ProductAPI";
 
 export const actionUpdateProductAPI = (productUpdateAPI) => {
-  return (dispatch) => {
-    return updateProductAPI(productUpdateAPI).then((res) => {
-      dispatch(actionUpdateProduct(res));
-      dispatch(actionFetchProductListAPI());
-    });
+  return async (dispatch) => {
+    const res = await updateProductAPI(productUpdateAPI);
+    dispatch(actionUpdateProduct(res));
+    dispatch(actionFetchProductListAPI());
   };
 };
 

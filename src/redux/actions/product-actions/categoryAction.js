@@ -2,10 +2,9 @@ import { FETCH_CATEGORY_API } from "../../constants/types";
 import { getCategoryAPI } from "../../../api/CategoryAPI";
 
 export const actionFetchCategoryListAPI = () => {
-  return (dispatch) => {
-    return getCategoryAPI().then((res) => {
-      dispatch(actionFetchCategoryList(res.data));
-    });
+  return async (dispatch) => {
+    const res = await getCategoryAPI();
+    dispatch(actionFetchCategoryList(res.data));
   };
 };
 
