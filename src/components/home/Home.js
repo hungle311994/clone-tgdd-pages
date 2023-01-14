@@ -39,7 +39,6 @@ const Home = ({ goTop }) => {
           <Button
             className="scroll-btn"
             outline
-            title="Go on top"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <span

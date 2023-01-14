@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./HomeContainer.css";
-import { getProductAPI } from "../api/ProductAPI";
 import withLoading from "../components/hoc/withLoading";
 import Home from "../components/home/Home";
+import { useDispatch, useSelector } from "react-redux";
+import { actionFetchProductListAPI } from "../redux/actions/product-actions/productAction";
 
 const HomeContainer = () => {
-  const [productList, setProductList] = useState([]);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  const productList = state.productRedux.productList;
   const [goTop, setGoTop] = useState(false);
-
-  const fetchProductList = () => {
-    getProductAPI().then((res) => {
-      setProductList(res.data.content);
-    });
-  };
 
   useEffect(() => {
     setTimeout(() => {
-      fetchProductList();
-    }, 1000);
+      dispatch(actionFetchProductListAPI());
+    }, 500);
 
-    window.addEventListener("scroll", () => setGoTop(window.scrollY >= 200));
-  }, []);
+    window.addEventListener("scroll", () => setGoTop(window.scrollY >= 150));
+  }, [dispatch]);
 
   const HomeWithLoading = withLoading(Home);
 
